@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>CollectionMaster</OriginalElement>
+  <nodes>
+    <node x="269.0" y="914.0">main.VehicleStackXmlParser</node>
+    <node x="451.5" y="0.0">essentials.XmlConvertable</node>
+    <node x="371.0" y="106.0">main.Vehicle</node>
+    <node x="0.0" y="914.0">essentials.VehicleType</node>
+    <node x="7.0" y="0.0">CollectionMaster</node>
+    <node x="550.0" y="914.0">essentials.Coordinates</node>
+    <node x="0.0" y="240.0">CollectionMaster.Commander</node>
+    <node x="774.0" y="0.0">essentials.FuelType</node>
+    <node x="792.0" y="914.0">essentials.StackInfo</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="main.Vehicle" target="essentials.XmlConvertable" relationship="REALIZATION">
+      <point x="0.0" y="-227.0" />
+      <point x="0.0" y="28.0" />
+    </edge>
+    <edge source="CollectionMaster.Commander" target="CollectionMaster" relationship="INNER_CLASS">
+      <point x="0.0" y="-314.5" />
+      <point x="0.0" y="95.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.5727739726027398" showDependencies="false" x="547.5" y="574.0" />
+  <SelectedNodes>
+    <node>main.Vehicle</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
