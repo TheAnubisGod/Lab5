@@ -2,9 +2,13 @@ package main;
 
 import essentials.FuelType;
 import essentials.StackInfo;
+import essentials.Vehicle;
 import essentials.VehicleType;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.ZonedDateTime;
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
@@ -20,10 +24,10 @@ public abstract class VehicleStackXmlParser {
             fileString.append(xmlConvertable.convertToXmlString());
         }
 
-        fileString = new StringBuilder(String.format("<element-list>%s</element-list>", fileString.toString()));
-        fileString = new StringBuilder(String.format("<creation-date>%s</creation-date>%s", stackInfo.getCreationDate(), fileString.toString()));
-        fileString = new StringBuilder(String.format("<max-id>%d</max-id>%s", stackInfo.getMaxId(), fileString.toString()));
-        fileString = new StringBuilder(String.format("<Stack>%s</Stack>", fileString.toString()));
+        fileString = new StringBuilder(String.format("<element-list>%s</element-list>", fileString));
+        fileString = new StringBuilder(String.format("<creation-date>%s</creation-date>%s", stackInfo.getCreationDate(), fileString));
+        fileString = new StringBuilder(String.format("<max-id>%d</max-id>%s", stackInfo.getMaxId(), fileString));
+        fileString = new StringBuilder(String.format("<Stack>%s</Stack>", fileString));
 
         return fileString.toString();
     }
@@ -58,7 +62,7 @@ public abstract class VehicleStackXmlParser {
         try {
             ZonedDateTime creationDate = ZonedDateTime.parse(parseTagFirst(xmlCode, "creation-date"));
             int maxId = Integer.parseInt(parseTagFirst(xmlCode, "max-id"));
-            Stack<Vehicle> stack = new Stack<Vehicle>();
+            Stack<Vehicle> stack = new Stack<>();
             String arrayCode = parseTagFirst(xmlCode, "element-list");
             while (tagExists(arrayCode, "Vehicle")) {
                 String vehicleCode = parseTagFirst(arrayCode, "Vehicle");
@@ -91,5 +95,15 @@ public abstract class VehicleStackXmlParser {
 
 
         return stackInfo;
+    }
+
+    public static StackInfo parseFromXml(File file) throws FileNotFoundException {
+        Scanner fileScanner = new Scanner(file);
+        StringBuilder xml = new StringBuilder();
+        while (fileScanner.hasNextLine()) {
+            xml.append(fileScanner.nextLine());
+        }
+
+        return VehicleStackXmlParser.parseFromXml(xml.toString());
     }
 }

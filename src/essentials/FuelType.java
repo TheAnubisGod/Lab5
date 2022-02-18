@@ -6,8 +6,8 @@ import java.util.Objects;
 /**
  * Enum описывающий виды топлива.
  *
- * @version 1.0
  * @author Владислав Дюжев
+ * @version 1.0
  */
 public enum FuelType {
     GASOLINE("GASOLINE"),
@@ -16,9 +16,9 @@ public enum FuelType {
     MANPOWER("MANPOWER"),
     PLASMA("PLASMA");
 
-    private String name;
+    private final String name;
 
-    private FuelType(String name) {
+    FuelType(String name) {
         this.name = name;
     }
 

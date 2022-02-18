@@ -1,8 +1,4 @@
-package main;
-
-import essentials.Coordinates;
-import essentials.FuelType;
-import essentials.VehicleType;
+package essentials;
 
 import java.time.ZonedDateTime;
 
